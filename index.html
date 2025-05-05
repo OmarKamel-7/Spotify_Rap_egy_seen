@@ -5,64 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spotify Playlist</title>
   <style>
-    :root {
-      --spotify-green: #1DB954;
-      --bg-color: #ffffff;
-      --text-color: #000000;
-    }
-
-    * {
-      box-sizing: border-box;
+    html, body {
       margin: 0;
       padding: 0;
-    }
-
-    body {
+      height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 1rem;
-      min-height: 100vh;
+      background-color: #000;
     }
 
-    h1 {
-      color: var(--spotify-green);
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    .spotify-embed-container {
-      width: 100%;
-      max-width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    iframe {
+    .spotify-embed-fullscreen {
       width: 100%;
       height: 100%;
       border: none;
+    }
+
+    h1 {
+      display: none; /* hide title for full-screen effect */
     }
   </style>
 </head>
 <body>
 
-  <h1>My Spotify Playlist</h1>
-
-  <div class="spotify-embed-container">
-    <iframe 
-      src="https://open.spotify.com/embed/playlist/09Ef3iMyrNe6E58xflO6Xx?utm_source=generator" 
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-      loading="lazy"
-      title="Spotify Playlist"></iframe>
-  </div>
+  <iframe 
+    class="spotify-embed-fullscreen"
+    src="https://open.spotify.com/embed/playlist/09Ef3iMyrNe6E58xflO6Xx?utm_source=generator" 
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+    loading="lazy"
+    title="Spotify Playlist"></iframe>
 
 </body>
 </html>
