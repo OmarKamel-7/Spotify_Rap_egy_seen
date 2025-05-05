@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,30 +8,116 @@
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #000;
+      direction: rtl;
+      color: #fff;
     }
 
-    .spotify-embed-fullscreen {
+    /* Notification Section at the Top */
+    .notification {
+      background-color: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;  /* Space between the notification and playlist */
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .icon-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      padding-top: 10px;
+    }
+
+    .icon-links a img {
+      height: 40px;
+      object-fit: contain;
+      transition: transform 0.2s;
+    }
+
+    .icon-links a:hover img {
+      transform: scale(1.15);
+    }
+
+    @media (max-width: 500px) {
+      .icon-links a img {
+        height: 32px;
+      }
+    }
+
+    /* Spotify Embed (Main Playlist Section) */
+    .spotify-section {
       width: 100%;
-      height: 100%;
+      height: 100vh;
+      padding: 0;
+      text-align: center;
+    }
+
+    .spotify-embed-main {
+      width: 100%;
+      height: calc(100vh - 80px); /* Takes up remaining height after notification */
       border: none;
     }
 
-    h1 {
-      display: none; /* hide title for full-screen effect */
+    /* Adjusted Text Styling */
+    .notification h2, .notification p {
+      margin: 10px 0;
     }
+
   </style>
 </head>
 <body>
 
-  <iframe 
-    class="spotify-embed-fullscreen"
-    src="https://open.spotify.com/embed/playlist/09Ef3iMyrNe6E58xflO6Xx?utm_source=generator" 
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-    loading="lazy"
-    title="Spotify Playlist"></iframe>
+  <!-- Notification Section (Top of the Page) -->
+  <div class="notification">
+    <button class="close-btn" onclick="closeModal()"></button>
+    <h2>🎧 شكراً عشان بتستخدموا خدمتنا</h2>
+    <p>لو عايزين تضيفوا تراكات، دا لينك البلاي ليست على سبوتيفاي:</p>
+    <a href="https://open.spotify.com/playlist/09Ef3iMyrNe6E58xflO6Xx?si=6c47524dad884609" target="_blank" style="color: #1DB954;">اضغط هنا</a>
+    <p>لو أي تعديلات أو عايزين تضيفوا تراكات، ابعتولنا على واتساب.</p>
+
+    <!-- Icons Section -->
+    <div class="icon-links">
+      <a href="https://open.spotify.com/playlist/09Ef3iMyrNe6E58xflO6Xx?si=6c47524dad884609" target="_blank" title="Spotify">
+        <img src="https://static.vecteezy.com/system/resources/previews/018/910/790/original/spotify-logo-spotify-symbol-spotify-icon-free-free-vector.jpg" alt="Spotify Logo">
+      </a>
+      <a href="https://wa.me/20237215193" target="_blank" title="WhatsApp">
+        <img src="https://static.vecteezy.com/system/resources/previews/014/414/681/original/whatsapp-square-logo-on-transparent-background-free-vector.jpg" alt="WhatsApp Logo">
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=100092579042023" target="_blank" title="Facebook">
+        <img src="https://img.generation-nt.com/facebook_04B0032001662445.png" alt="Facebook Logo" style="width: auto; height: 40px;">
+      </a>
+    </div>
+  </div>
+
+  <!-- Spotify Playlist Section (Main Playlist Embed) -->
+  <div class="spotify-section">
+    <iframe 
+      class="spotify-embed-main"
+      src="https://open.spotify.com/embed/playlist/09Ef3iMyrNe6E58xflO6Xx?utm_source=generator" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy"
+      title="Spotify Playlist"></iframe>
+  </div>
+
+  <script>
+    function closeModal() {
+      document.querySelector('.notification').style.display = 'none';  // Hide the notification
+    }
+  </script>
 
 </body>
 </html>
